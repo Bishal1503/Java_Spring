@@ -20,7 +20,7 @@ public class UserRestController {
      *
      * @return
      */
-    @GetMapping("/books")
+    @GetMapping("/users")
     List<User> findAll() {
         return userRepository.findAll();
     }
@@ -31,7 +31,7 @@ public class UserRestController {
      * @param newUser
      * @return
      */
-    @PostMapping("/books")
+    @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
     User newUser(@RequestBody User newUser) {
         return userRepository.save(newUser);
@@ -43,7 +43,7 @@ public class UserRestController {
      * @param id
      * @return
      */
-    @GetMapping("/books/{id}")
+    @GetMapping("/users/{id}")
     User findUser(@PathVariable Long id) {
         return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
     }
@@ -55,7 +55,7 @@ public class UserRestController {
      * @param id
      * @return
      */
-    @PutMapping("/books/{id}")
+    @PutMapping("/users/{id}")
     User updateOrSave(@RequestBody User book, @PathVariable Long id) {
         return userRepository.findById(id)
                 .map(buk -> {
@@ -75,7 +75,7 @@ public class UserRestController {
      *
      * @param id
      */
-    @DeleteMapping("/books/{id}")
+    @DeleteMapping("/users/{id}")
     void deleteUser(@PathVariable Long id) {
         userRepository.deleteById(id);
     }

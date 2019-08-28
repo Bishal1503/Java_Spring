@@ -44,7 +44,7 @@ public class BookRestControllerTest {
     @Before
     public void init() {
         Book book = new Book(1L, "The Forest of Enchantments", "Chitra Banerjee Divakaruni", new BigDecimal("353.50"));
-        when(mockBookRepository.findById(1L)).thenReturn(Optional.of(book));
+        when(mockBookRepository.findById(1l)).thenReturn(Optional.of(book));
     }
 
     @Test
